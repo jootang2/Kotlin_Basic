@@ -1,3 +1,5 @@
+import java.lang.NumberFormatException
+import java.text.NumberFormat
 import kotlin.random.Random
 
 //fun max(a: Int, b: Int) = if (a > b) a else b // 코틀린에서는 조건문을 식으로 사용 가능
@@ -69,17 +71,61 @@ import kotlin.random.Random
 //    }
 //}
 
-fun countLetters(text: String): IntArray {
-    val counts = IntArray('z' - 'a' + 1)
+//fun countLetters(text: String): IntArray {
+//    val counts = IntArray('z' - 'a' + 1)
+//
+//    for(char in text) {
+//        val charLower = char.toLowerCase()
+//        if(charLower !in 'a'..'z') continue
+//        counts[charLower - 'a']++
+//    }
+//    return counts
+//}
+//
+//fun main() {
+//    val x = countLetters("abcd")
+//}
+//
+//fun parseIntNumber(s: String): Int {
+//    var num = 0
+//
+//    if (s.length !in 1..31) throw NumberFormatException("Not a number: $s")
+//
+//    for (c in s) {
+//        if (c !in '0'..'1') throw NumberFormatException("Not a number: $s")
+//        num = num * 2 + (c - '0')
+//    }
+//
+//    return num
+//}
 
-    for(char in text) {
-        val charLower = char.toLowerCase()
-        if(charLower !in 'a'..'z') continue
-        counts[charLower - 'a']++
+//class Person {
+//    var firstName: String = ""
+//    var familyName: String = ""
+//    var age: Int = 0
+//
+//    fun fullName() = "$firstName $familyName"
+//
+//    fun showMe() {
+//        println("${fullName()}: $age")
+//    }
+//}
+//
+//fun showAge(p: Person) = println(p.age)
+//fun readAge(p: Person) {
+//    p.age = readLine()!!.toInt()
+//}
+//
+//fun showFullName(p:Person) = println(p.fullName())
+class Person(firstName: String, familyName: String) {
+    val fullName = "$firstName $familyName"
+
+    init {
+        println("init code")
     }
-    return counts
 }
-
 fun main() {
-    val x = countLetters("abcd")
+    val person = Person("John", "Doe")
+    val secondPerson = Person("hwan", "joo")
+    println(person.fullName)
 }
